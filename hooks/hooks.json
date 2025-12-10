@@ -6,40 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '🛡️  CodeWarden: Your code quality guardian' && echo '   Skills: Ultracite (code quality) + React Next Modern (app patterns) + UI/UX Guidelines' && echo '   Commands: /code-review, /fix-patterns, /migrate-to-app-router, /security-audit' && echo '   Agents: code-reviewer, code-refactorer, security-auditor, pattern-detector, migration-planner, accessibility-auditor' && echo '   Created by Tyler Gibbs'"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_input.command' | { read cmd; if echo \"$cmd\" | grep -qE 'rm -rf|dd if=|:(\\)\\{|mkfs|format|del /s'; then echo '⚠️  Blocked potentially destructive command. Please review carefully.' >&2; exit 2; fi; }"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_input.file_path' | { read file_path; if echo \"$file_path\" | grep -qE '\\.(ts|tsx|js|jsx)$'; then echo \"💡 Consider running: pnpm biome format --write $file_path\"; fi; }"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '' > /dev/null"
+            "command": "echo CodeWarden: Your code quality guardian && echo Skills: Ultracite, React Next Modern, UI/UX Guidelines && echo Commands: /code-review, /fix-patterns, /migrate-to-app-router, /security-audit && echo Created by Tyler Gibbs"
           }
         ]
       }
