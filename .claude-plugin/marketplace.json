@@ -11,6 +11,10 @@
       "name": "codewarden",
       "source": "./",
       "description": "CodeWarden watches over your code: Ultracite quality enforcement, React 19/Next.js patterns, security auditing, and automated workflows",
+      "author": {
+        "name": "Tyler Gibbs"
+      },
+      "category": "devtools",
       "tags": [
         "codewarden",
         "code-quality",
