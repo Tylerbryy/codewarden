@@ -1,6 +1,6 @@
-# CodeWarden 🛡️
+# CodeWarden
 
-> Your vigilant guardian for code quality and modern development practices
+> Enforce code quality and modern development practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/tylerbryy/codewarden)
@@ -9,44 +9,44 @@
 
 ## Overview
 
-**CodeWarden** is a comprehensive Claude Code plugin that watches over your codebase, enforcing modern development practices, code quality standards, and security best practices for TypeScript/React/Next.js applications. Like a vigilant guardian, it ensures your code meets the highest standards of quality, accessibility, and security.
+CodeWarden is a Claude Code plugin for enforcing modern development practices, code quality standards, and security best practices in TypeScript/React/Next.js applications. The plugin ensures your code meets strict standards for quality, accessibility, and security.
 
 ## Features
 
-### 🎯 Agent Skills
+### Agent Skills
 
-#### **Ultracite - Code Quality Enforcer**
+#### Ultracite - Code Quality Enforcer
 Strict enforcement of type safety, accessibility standards, and code quality rules based on Biome's linter.
 
-- **Type Safety**: No `any`, proper TypeScript patterns, enum → const objects
-- **Accessibility**: WCAG compliance, proper ARIA attributes, semantic HTML
-- **Modern JavaScript**: Arrow functions, template literals, optional chaining
-- **React Best Practices**: Proper keys, hook dependencies, component patterns
-- **Next.js Optimization**: Image optimization, proper imports, App Router patterns
+- Type Safety: No `any`, proper TypeScript patterns, enum to const objects
+- Accessibility: WCAG compliance, proper ARIA attributes, semantic HTML
+- Modern JavaScript: Arrow functions, template literals, optional chaining
+- React Best Practices: Proper keys, hook dependencies, component patterns
+- Next.js Optimization: Image optimization, proper imports, App Router patterns
 
-#### **React Next Modern - Architectural Patterns**
+#### React Next Modern - Architectural Patterns
 Enforce React 19 and Next.js App Router best practices with server-first architecture.
 
-- **Server Components**: Async-native data fetching, request memoization
-- **Server Actions**: Secure mutations with validation and auth
-- **Form Hooks**: useActionState, useFormStatus, useOptimistic
-- **Performance**: Eliminate waterfalls, optimize bundles
-- **Security**: Input validation, authentication, rate limiting
+- Server Components: Async-native data fetching, request memoization
+- Server Actions: Secure mutations with validation and auth
+- Form Hooks: useActionState, useFormStatus, useOptimistic
+- Performance: Eliminate waterfalls, optimize bundles
+- Security: Input validation, authentication, rate limiting
 
-#### **UI/UX Guidelines - Accessibility & Design**
-Comprehensive UI/UX best practices for accessible, performant, and delightful interfaces.
+#### UI/UX Guidelines - Accessibility & Design
+UI/UX best practices for accessible, performant, and delightful interfaces.
 
-- **Keyboard Navigation**: Full WCAG compliance, focus management
-- **Touch Targets**: Mobile-friendly hit areas (≥44px)
-- **Accessibility**: ARIA labels, semantic HTML, screen reader support
-- **Animations**: prefers-reduced-motion support, compositor-friendly
-- **Forms**: Proper validation, error handling, password manager support
-- **Performance**: Image optimization, virtualized lists, minimal re-renders
+- Keyboard Navigation: Full WCAG compliance, focus management
+- Touch Targets: Mobile-friendly hit areas (≥44px)
+- Accessibility: ARIA labels, semantic HTML, screen reader support
+- Animations: prefers-reduced-motion support, compositor-friendly
+- Forms: Proper validation, error handling, password manager support
+- Performance: Image optimization, virtualized lists, minimal re-renders
 
-### 🔧 Slash Commands
+### Slash Commands
 
 #### `/code-review`
-Comprehensive code review with Ultracite and React/Next.js patterns
+Code review with Ultracite and React/Next.js patterns
 ```bash
 /code-review                    # Review recent changes
 /code-review web/src/app        # Review specific directory
@@ -65,34 +65,34 @@ Automatically detect and fix common anti-patterns
 Migrate Next.js Pages Router to App Router with Server Components
 ```bash
 /migrate-to-app-router          # Full migration guide
-/migrate-to-app-router --analyze-only  # Just show plan
+/migrate-to-app-router --analyze-only  # Show plan only
 ```
 
 #### `/security-audit`
-Comprehensive security audit of your application
+Security audit of your application
 ```bash
 /security-audit                 # Full security scan
 /security-audit --critical-only # Show critical issues only
 /security-audit --fix           # Auto-fix safe issues
 ```
 
-### 🤖 Specialized Agents
+### Specialized Agents
 
-#### **code-reviewer**
-Comprehensive multi-dimensional code quality reviewer
+#### code-reviewer
+Code quality reviewer
 - Reviews against Ultracite, React patterns, and UI/UX guidelines
 - Identifies type safety, security, and accessibility issues
 - Provides specific fixes with file:line references
 - Prioritized findings (Critical/High/Medium/Low)
 
-#### **code-refactorer**
+#### code-refactorer
 Expert in refactoring code to modern patterns while preserving functionality
 - Incremental, safe refactoring
 - Type safety improvements
 - Performance optimization
 - Component extraction
 
-#### **security-auditor**
+#### security-auditor
 Specialized in identifying and fixing security vulnerabilities
 - Server Action security
 - Authentication/authorization audits
@@ -100,21 +100,21 @@ Specialized in identifying and fixing security vulnerabilities
 - XSS vulnerability detection
 - Dependency security checks
 
-#### **pattern-detector**
+#### pattern-detector
 Anti-pattern detection and automated fixing specialist
 - Detects var/enum/any usage and other code smells
 - Supports --dry-run and --type=X flags
 - Validates fixes with TypeScript compiler
 - Groups findings by pattern type
 
-#### **migration-planner**
+#### migration-planner
 Next.js Pages Router to App Router migration expert
 - Analyzes existing Pages Router structure
 - Creates phased migration roadmap
 - Converts getServerSideProps to Server Components
 - Splits Server/Client components correctly
 
-#### **accessibility-auditor**
+#### accessibility-auditor
 WCAG 2.1 AA compliance specialist
 - Keyboard navigation verification
 - ARIA and semantic HTML checks
@@ -122,11 +122,11 @@ WCAG 2.1 AA compliance specialist
 - Screen reader compatibility
 - Mobile touch target verification
 
-### 🪝 Automation Hooks
+### Automation Hooks
 
-- **Session Start**: Welcome message with plugin capabilities
-- **Unsafe Command Prevention**: Blocks potentially destructive bash commands (rm -rf, dd, fork bombs, etc.)
-- **Auto-Format Suggestions**: Suggests running Biome formatter after TypeScript/JavaScript edits
+- Session Start: Welcome message with plugin capabilities
+- Unsafe Command Prevention: Blocks destructive bash commands (rm -rf, dd, fork bombs, etc.)
+- Auto-Format Suggestions: Suggests running Biome formatter after TypeScript/JavaScript edits
 
 ## Installation
 
@@ -175,28 +175,28 @@ When team members trust the repository, the plugin installs automatically.
 
 ## Quick Start
 
-1. **Install the plugin** (see Installation above)
+1. Install the plugin (see Installation above)
 
-2. **Run a code review**:
+2. Run a code review:
    ```bash
    /code-review
    ```
 
-3. **Perform a security audit**:
+3. Perform a security audit:
    ```bash
    /security-audit
    ```
 
-4. **Fix common anti-patterns**:
+4. Fix common anti-patterns:
    ```bash
    /fix-patterns
    ```
 
-5. **The skills activate automatically** when:
-   - Writing TypeScript/React code
-   - Reviewing pull requests
-   - Implementing forms or mutations
-   - Working with Server Components/Actions
+5. The skills activate automatically when you:
+   - Write TypeScript/React code
+   - Review pull requests
+   - Implement forms or mutations
+   - Work with Server Components/Actions
 
 ## Usage Examples
 
@@ -205,13 +205,13 @@ When team members trust the repository, the plugin installs automatically.
 The Ultracite skill automatically enforces rules when you write code:
 
 ```typescript
-// ❌ Claude will suggest fixing these:
+// Bad - Claude will suggest fixing these:
 var count = 0                              // Use const/let
 enum Status { ACTIVE }                     // Use as const
 function process(data: any) {}             // Use specific types
 items.map((item, i) => <div key={i}>)     // Use proper keys
 
-// ✅ Claude will guide you to write:
+// Good - Claude will guide you to write:
 let count = 0
 const Status = { ACTIVE: 'active' } as const
 function process(data: User) {}
@@ -223,7 +223,7 @@ items.map(item => <div key={item.id}>)
 The React Next Modern skill enforces server-first architecture:
 
 ```typescript
-// ❌ Claude will suggest refactoring:
+// Bad - Claude will suggest refactoring:
 "use client"
 function Page() {
   const [data, setData] = useState([])
@@ -232,7 +232,7 @@ function Page() {
   }, [])
 }
 
-// ✅ Claude will guide you to:
+// Good - Claude will guide you to:
 async function Page() {
   const data = await db.query.data.findMany()
   return <DataList data={data} />
@@ -244,13 +244,13 @@ async function Page() {
 The security-auditor agent ensures your Server Actions are secure:
 
 ```typescript
-// ❌ Claude will flag security issues:
+// Bad - Claude will flag security issues:
 "use server"
 export async function updateUser(data: any) {
   await db.update(users).set(data)
 }
 
-// ✅ Claude will guide you to:
+// Good - Claude will guide you to:
 "use server"
 import { z } from 'zod'
 import { auth } from '@/lib/auth'
@@ -297,7 +297,7 @@ codewarden/
 │   ├── migrate-to-app-router.md  # Migration guide
 │   └── security-audit.md     # Security audit command
 ├── agents/
-│   ├── code-reviewer.md      # Comprehensive code reviewer
+│   ├── code-reviewer.md      # Code quality reviewer
 │   ├── code-refactorer.md    # Refactoring agent
 │   ├── security-auditor.md   # Security vulnerability scanner
 │   ├── pattern-detector.md   # Anti-pattern detector
@@ -361,7 +361,7 @@ cd codewarden
 
 ### Contributing
 
-We welcome contributions! Please:
+We welcome contributions. Please:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -383,13 +383,13 @@ git push origin main --tags
 
 This plugin is built on these core principles:
 
-1. **Safety First**: Never break working code
-2. **Server-First**: Leverage Server Components and Server Actions
-3. **Type Safety**: Strict TypeScript with no escape hatches
-4. **Accessibility**: WCAG compliance is non-negotiable
-5. **Security**: Defense in depth, validate everything
-6. **Performance**: Optimize for Core Web Vitals
-7. **Maintainability**: Code should be easy to understand
+1. Safety First: Never break working code
+2. Server-First: Leverage Server Components and Server Actions
+3. Type Safety: Strict TypeScript with no escape hatches
+4. Accessibility: WCAG compliance is non-negotiable
+5. Security: Defense in depth, validate everything
+6. Performance: Optimize for Core Web Vitals
+7. Maintainability: Code should be easy to understand
 
 ## Roadmap
 
@@ -403,9 +403,9 @@ This plugin is built on these core principles:
 
 ## Support
 
-- 🐛 [Issue Tracker](https://github.com/tylerbryy/codewarden/issues)
-- 💬 [Discussions](https://github.com/tylerbryy/codewarden/discussions)
-- 📧 [Email](mailto:tyler.gibbs@tensorpt.com)
+- [Issue Tracker](https://github.com/tylerbryy/codewarden/issues)
+- [Discussions](https://github.com/tylerbryy/codewarden/discussions)
+- [Email](mailto:tyler.gibbs@tensorpt.com)
 
 ## License
 
@@ -413,4 +413,4 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-**Built with ❤️ by [Tyler Gibbs](https://github.com/tylerbryy)**
+Built by [Tyler Gibbs](https://github.com/tylerbryy)
