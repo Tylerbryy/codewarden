@@ -33,6 +33,16 @@ Enforce React 19 and Next.js App Router best practices with server-first archite
 - **Performance**: Eliminate waterfalls, optimize bundles
 - **Security**: Input validation, authentication, rate limiting
 
+#### **UI/UX Guidelines - Accessibility & Design**
+Comprehensive UI/UX best practices for accessible, performant, and delightful interfaces.
+
+- **Keyboard Navigation**: Full WCAG compliance, focus management
+- **Touch Targets**: Mobile-friendly hit areas (≥44px)
+- **Accessibility**: ARIA labels, semantic HTML, screen reader support
+- **Animations**: prefers-reduced-motion support, compositor-friendly
+- **Forms**: Proper validation, error handling, password manager support
+- **Performance**: Image optimization, virtualized lists, minimal re-renders
+
 ### 🔧 Slash Commands
 
 #### `/code-review`
@@ -68,6 +78,13 @@ Comprehensive security audit of your application
 
 ### 🤖 Specialized Agents
 
+#### **code-reviewer**
+Comprehensive multi-dimensional code quality reviewer
+- Reviews against Ultracite, React patterns, and UI/UX guidelines
+- Identifies type safety, security, and accessibility issues
+- Provides specific fixes with file:line references
+- Prioritized findings (Critical/High/Medium/Low)
+
 #### **code-refactorer**
 Expert in refactoring code to modern patterns while preserving functionality
 - Incremental, safe refactoring
@@ -83,11 +100,33 @@ Specialized in identifying and fixing security vulnerabilities
 - XSS vulnerability detection
 - Dependency security checks
 
+#### **pattern-detector**
+Anti-pattern detection and automated fixing specialist
+- Detects var/enum/any usage and other code smells
+- Supports --dry-run and --type=X flags
+- Validates fixes with TypeScript compiler
+- Groups findings by pattern type
+
+#### **migration-planner**
+Next.js Pages Router to App Router migration expert
+- Analyzes existing Pages Router structure
+- Creates phased migration roadmap
+- Converts getServerSideProps to Server Components
+- Splits Server/Client components correctly
+
+#### **accessibility-auditor**
+WCAG 2.1 AA compliance specialist
+- Keyboard navigation verification
+- ARIA and semantic HTML checks
+- Color contrast validation
+- Screen reader compatibility
+- Mobile touch target verification
+
 ### 🪝 Automation Hooks
 
 - **Session Start**: Welcome message with plugin capabilities
-- **Unsafe Command Prevention**: Blocks potentially destructive bash commands
-- **Code Quality Reminders**: Best practice reminders during development
+- **Unsafe Command Prevention**: Blocks potentially destructive bash commands (rm -rf, dd, fork bombs, etc.)
+- **Auto-Format Suggestions**: Suggests running Biome formatter after TypeScript/JavaScript edits
 
 ## Installation
 
@@ -241,22 +280,29 @@ export async function updateUser(formData: FormData) {
 ## Plugin Structure
 
 ```
-claude-verity-plugin/
+codewarden/
 ├── .claude-plugin/
-│   └── plugin.json           # Plugin metadata
+│   ├── plugin.json           # Plugin metadata
+│   └── marketplace.json      # Marketplace configuration
 ├── skills/
 │   ├── ultracite/
 │   │   └── SKILL.md          # Code quality rules
-│   └── react-next-modern/
-│       └── SKILL.md          # React/Next.js patterns
+│   ├── react-next-modern/
+│   │   └── SKILL.md          # React/Next.js patterns
+│   └── ui-ux-guidelines/
+│       └── SKILL.md          # UI/UX best practices
 ├── commands/
 │   ├── code-review.md        # Code review command
 │   ├── fix-patterns.md       # Pattern fixing command
 │   ├── migrate-to-app-router.md  # Migration guide
 │   └── security-audit.md     # Security audit command
 ├── agents/
+│   ├── code-reviewer.md      # Comprehensive code reviewer
 │   ├── code-refactorer.md    # Refactoring agent
-│   └── security-auditor.md   # Security agent
+│   ├── security-auditor.md   # Security vulnerability scanner
+│   ├── pattern-detector.md   # Anti-pattern detector
+│   ├── migration-planner.md  # App Router migration planner
+│   └── accessibility-auditor.md  # Accessibility compliance checker
 ├── hooks/
 │   └── hooks.json            # Automation hooks
 ├── README.md                 # This file
@@ -267,16 +313,23 @@ claude-verity-plugin/
 
 ### Customize Hook Behavior
 
-Edit `hooks/hooks.json` to enable/disable automation:
+Hooks are configured in `hooks/hooks.json`. To disable a hook, remove it from the configuration:
 
 ```json
 {
-  "session-start": [
-    {
-      "name": "welcome-message",
-      "enabled": true  // Set to false to disable
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Welcome!'"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
