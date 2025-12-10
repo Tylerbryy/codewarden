@@ -1,0 +1,83 @@
+# Changelog
+
+All notable changes to CodeWarden will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2025-01-10
+
+### Added
+
+#### Agent Skills
+- **Ultracite**: Comprehensive code quality enforcement
+  - Type safety rules (no any, enum → const objects)
+  - Accessibility standards (WCAG compliance, ARIA attributes)
+  - Modern JavaScript patterns (arrow functions, template literals)
+  - React best practices (proper keys, hook dependencies)
+  - Next.js optimization (Image component, proper imports)
+  - Error handling patterns
+  - Style consistency rules
+
+- **React Next Modern**: React 19 and Next.js App Router patterns
+  - useEffect "escape hatch" philosophy
+  - Server Components by default
+  - Server Actions for mutations
+  - React 19 form hooks (useActionState, useFormStatus, useOptimistic)
+  - Request memoization with React.cache
+  - Performance optimization patterns
+  - Security standards for Server Actions
+  - Migration guides from legacy patterns
+
+#### Slash Commands
+- `/code-review` - Comprehensive code review with quality and security checks
+- `/fix-patterns` - Automatically detect and fix common anti-patterns
+- `/migrate-to-app-router` - Migrate from Pages Router to App Router
+- `/security-audit` - Security vulnerability scanning and remediation
+
+#### Specialized Agents
+- **code-refactorer** - Expert refactoring while preserving functionality
+- **security-auditor** - Security vulnerability identification and fixing
+
+#### Automation Hooks
+- Session start welcome message
+- Unsafe bash command prevention
+- Code quality reminders
+- Optional auto-formatting after edits
+
+#### Documentation
+- Comprehensive README with examples
+- Installation instructions (GitHub, local, team)
+- Usage examples and patterns
+- Plugin structure documentation
+- Contributing guidelines
+- MIT License
+
+### Technical Details
+- Minimum Claude Code version: 1.0.0
+- Plugin type: Skills + Commands + Agents + Hooks
+- Total Skills: 2
+- Total Commands: 4
+- Total Agents: 2
+- Total Hooks: 4
+
+### Notes
+- Initial release
+- Built by Tyler Gibbs
+- Focus on production-grade React/Next.js development
+- Emphasis on security, accessibility, and type safety
+
+## [Unreleased]
+
+### Planned
+- GraphQL/tRPC integration patterns
+- Database migration safety checks
+- API versioning enforcement
+- Performance budgets and monitoring
+- Automated test generation
+- CI/CD configuration templates
+- Docker and deployment patterns
+
+---
+
+For more information, see the [README](README.md).

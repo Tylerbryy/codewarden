@@ -1,0 +1,26 @@
+{
+  "name": "codewarden-marketplace",
+  "owner": {
+    "name": "Tyler Gibbs",
+    "url": "https://github.com/tylerbryy",
+    "contact": "tyler.gibbs@tensorpt.com"
+  },
+  "description": "CodeWarden: Your vigilant guardian for code quality and modern development practices",
+  "plugins": [
+    {
+      "name": "codewarden",
+      "source": "./",
+      "description": "CodeWarden watches over your code: Ultracite quality enforcement, React 19/Next.js patterns, security auditing, and automated workflows",
+      "featured": true,
+      "tags": [
+        "codewarden",
+        "code-quality",
+        "react",
+        "nextjs",
+        "typescript",
+        "security",
+        "guardian"
+      ]
+    }
+  ]
+}

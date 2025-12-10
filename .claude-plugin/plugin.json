@@ -1,0 +1,38 @@
+{
+  "name": "codewarden",
+  "description": "CodeWarden watches over your code quality: Ultracite enforcement, React 19/Next.js App Router patterns, security auditing, and automated workflows for modern TypeScript/React applications",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tyler Gibbs",
+    "email": "tyler.gibbs@tensorpt.com",
+    "url": "https://github.com/tylerbryy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylerbryy/codewarden"
+  },
+  "homepage": "https://github.com/tylerbryy/codewarden",
+  "bugs": {
+    "url": "https://github.com/tylerbryy/codewarden/issues"
+  },
+  "keywords": [
+    "codewarden",
+    "code-quality",
+    "react",
+    "nextjs",
+    "typescript",
+    "security",
+    "accessibility",
+    "linting",
+    "biome",
+    "server-components",
+    "server-actions",
+    "testing",
+    "hooks",
+    "ultracite",
+    "development-tools",
+    "code-guardian"
+  ],
+  "license": "MIT",
+  "minClaudeCodeVersion": "1.0.0"
+}

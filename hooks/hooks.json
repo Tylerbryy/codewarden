@@ -1,0 +1,35 @@
+{
+  "user-prompt-submit": [
+    {
+      "name": "code-quality-reminder",
+      "enabled": true,
+      "script": "# Code Quality Reminder\n\nWhen writing code, remember to:\n- Follow Ultracite rules for type safety and accessibility\n- Use React 19 and Next.js App Router patterns\n- Validate all user input with Zod\n- Add authentication to Server Actions\n- Write comprehensive error handling\n\nThese best practices are enforced automatically by the plugin skills."
+    }
+  ],
+  "tool-call-attempt": [
+    {
+      "name": "prevent-unsafe-bash",
+      "enabled": true,
+      "script": "# Check for potentially unsafe bash commands\nif echo \"$tool_name\" | grep -q \"^Bash\"; then\n  if echo \"$tool_call_params\" | grep -qE \"rm -rf|dd if=|:(){ :|:& };:|mkfs|format|del /s\"; then\n    echo \"⚠️  Blocked potentially destructive command. Please review carefully.\"\n    exit 1\n  fi\nfi\nexit 0"
+    }
+  ],
+  "tool-call-success": [
+    {
+      "name": "auto-format-after-edit",
+      "enabled": false,
+      "script": "# Automatically run formatter after file edits\nif [ \"$tool_name\" = \"Edit\" ] || [ \"$tool_name\" = \"Write\" ]; then\n  # Suggest running formatter\n  echo \"💡 Consider running: pnpm biome format --write\"\nfi\nexit 0"
+    }
+  ],
+  "session-start": [
+    {
+      "name": "welcome-message",
+      "enabled": true,
+      "script": "echo \"🛡️  CodeWarden: Your code quality guardian\"\necho \"   Skills: Ultracite (code quality) + React Next Modern (app patterns)\"\necho \"   Commands: /code-review, /fix-patterns, /migrate-to-app-router, /security-audit\"\necho \"   Agents: code-refactorer, security-auditor\"\necho \"   Created by Tyler Gibbs\"\nexit 0"
+    },
+    {
+      "name": "check-dependencies",
+      "enabled": false,
+      "script": "# Check if required tools are installed\nif command -v pnpm &> /dev/null; then\n  echo \"✓ pnpm found\"\nelse\n  echo \"⚠️  pnpm not found - some features may not work\"\nfi\nexit 0"
+    }
+  ]
+}
