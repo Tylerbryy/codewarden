@@ -2,7 +2,6 @@
 name: react-next-modern
 description: Enforce modern React 19 and Next.js App Router patterns - server-first data fetching, minimal useEffect, Server Components, Server Actions, and form hooks. Use when reviewing React/Next.js code, migrating legacy patterns, or building new features with App Router.
 allowed-tools: Read, Grep, Glob, Edit
-globs: "**/*.{ts,tsx,js,jsx}"
 ---
 
 # React and Next.js Modern Best Practices (2025)

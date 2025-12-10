@@ -2,7 +2,6 @@
 name: ui-ux-guidelines
 description: Enforce comprehensive UI/UX best practices for accessible, performant, and delightful interfaces. Use when building components, reviewing UI code, or evaluating user experiences.
 allowed-tools: Read, Grep, Glob, Edit
-globs: "**/*.{ts,tsx,js,jsx,css,scss}"
 ---
 
 # UI/UX Guidelines for Accessible, Fast, Delightful Interfaces

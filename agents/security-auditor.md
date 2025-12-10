@@ -1,7 +1,10 @@
 ---
 name: security-auditor
-description: Specialized agent for identifying and fixing security vulnerabilities in TypeScript/React/Next.js applications
+description: Security vulnerability specialist. Use PROACTIVELY when reviewing Server Actions, authentication logic, or when user requests security audit. MUST BE USED for /security-audit command.
+tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
+skills: ultracite, react-next-modern
+permissionMode: acceptEdits
 ---
 
 # Security Auditor Agent

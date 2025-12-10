@@ -2,7 +2,6 @@
 name: ultracite
 description: Enforce strict type safety, accessibility standards, and code quality for TypeScript/JavaScript projects using Biome's formatter and linter. Use when writing, reviewing, or fixing TS/JS/TSX/JSX code, checking for a11y issues, linting errors, type safety problems, or when the user mentions code quality, formatting, accessibility, or best practices.
 allowed-tools: Read, Grep, Glob, Edit
-globs: "**/*.{ts,tsx,js,jsx}"
 ---
 
 # Ultracite - AI-Ready Formatter and Linter

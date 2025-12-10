@@ -1,7 +1,9 @@
 ---
 name: code-refactorer
-description: Specialized agent for refactoring code to follow Ultracite and modern React/Next.js patterns
+description: Expert refactoring specialist. Use proactively after analyzing code that needs modernization, when migrating to new patterns, or when user requests refactoring.
+tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
+skills: ultracite, react-next-modern, ui-ux-guidelines
 ---
 
 # Code Refactorer Agent
