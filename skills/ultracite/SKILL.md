@@ -145,7 +145,7 @@ function ParentComponent() {
 
 - ❌ Don't use TypeScript enums (use `as const` objects instead)
 - ❌ Don't use the `any` type
-- ❌ Don't use non-null assertions with the `!` postfix operator
+- ❌ Don't use non-null assertions with the exclamation mark postfix operator
 - ❌ Don't use TypeScript namespaces
 - ❌ Don't use parameter properties in class constructors
 - ❌ Don't declare empty interfaces
@@ -276,7 +276,7 @@ async function fetchData(url: string) {
 **Key style requirements:**
 
 - ✅ Use `const` declarations for variables that are only assigned once
-- ✅ Use `===` and `!==` instead of `==` and `!=`
+- ✅ Use strict equality (===) and strict inequality (!==) instead of loose equality (==) and loose inequality (!=)
 - ✅ Use template literals over string concatenation
 - ✅ Use assignment operator shorthand where possible (`+=`, `-=`, etc.)
 - ✅ Use the `**` operator instead of `Math.pow`
@@ -358,7 +358,7 @@ export default function Profile() {
 5. **Index as key** in React lists
 6. **Missing error handling** in async functions
 7. **Using enums** instead of const objects
-8. **Non-null assertions** (!.) in TypeScript
+8. **Non-null assertions** (postfix exclamation mark) in TypeScript
 9. **Await in loops** instead of Promise.all
 10. **Missing dependencies** in useEffect
 
