@@ -11,6 +11,76 @@
 
 CodeWarden is a Claude Code plugin for enforcing modern development practices, code quality standards, and security best practices in TypeScript/React/Next.js applications. The plugin ensures your code meets strict standards for quality, accessibility, and security.
 
+## Installation
+
+### Option 1: Install from GitHub (Recommended)
+
+```bash
+# In Claude Code
+/plugin marketplace add https://github.com/tylerbryy/codewarden
+
+# Install the plugin
+/plugin install codewarden
+```
+
+### Option 2: Install from Local Marketplace
+
+```bash
+# Clone the repository
+git clone https://github.com/tylerbryy/codewarden.git
+cd codewarden
+
+# Add local marketplace
+/plugin marketplace add ./
+
+# Install the plugin
+/plugin install codewarden
+```
+
+### Option 3: Team Installation (Repository Level)
+
+Add to your project's `.claude/settings.json`:
+
+```json
+{
+  "pluginMarketplaces": [
+    "https://github.com/tylerbryy/codewarden"
+  ],
+  "plugins": {
+    "codewarden": {
+      "enabled": true
+    }
+  }
+}
+```
+
+When team members trust the repository, the plugin installs automatically.
+
+## Quick Start
+
+1. Install the plugin (see Installation above)
+
+2. Run a code review:
+   ```bash
+   /code-review
+   ```
+
+3. Perform a security audit:
+   ```bash
+   /security-audit
+   ```
+
+4. Fix common anti-patterns:
+   ```bash
+   /fix-patterns
+   ```
+
+5. The skills activate automatically when you:
+   - Write TypeScript/React code
+   - Review pull requests
+   - Implement forms or mutations
+   - Work with Server Components/Actions
+
 ## Features
 
 ### Agent Skills
@@ -127,76 +197,6 @@ WCAG 2.1 AA compliance specialist
 - Session Start: Welcome message with plugin capabilities
 - Unsafe Command Prevention: Blocks destructive bash commands (rm -rf, dd, fork bombs, etc.)
 - Auto-Format Suggestions: Suggests running Biome formatter after TypeScript/JavaScript edits
-
-## Installation
-
-### Option 1: Install from GitHub (Recommended)
-
-```bash
-# In Claude Code
-/plugin marketplace add https://github.com/tylerbryy/codewarden
-
-# Install the plugin
-/plugin install codewarden
-```
-
-### Option 2: Install from Local Marketplace
-
-```bash
-# Clone the repository
-git clone https://github.com/tylerbryy/codewarden.git
-cd codewarden
-
-# Add local marketplace
-/plugin marketplace add ./
-
-# Install the plugin
-/plugin install codewarden
-```
-
-### Option 3: Team Installation (Repository Level)
-
-Add to your project's `.claude/settings.json`:
-
-```json
-{
-  "pluginMarketplaces": [
-    "https://github.com/tylerbryy/codewarden"
-  ],
-  "plugins": {
-    "codewarden": {
-      "enabled": true
-    }
-  }
-}
-```
-
-When team members trust the repository, the plugin installs automatically.
-
-## Quick Start
-
-1. Install the plugin (see Installation above)
-
-2. Run a code review:
-   ```bash
-   /code-review
-   ```
-
-3. Perform a security audit:
-   ```bash
-   /security-audit
-   ```
-
-4. Fix common anti-patterns:
-   ```bash
-   /fix-patterns
-   ```
-
-5. The skills activate automatically when you:
-   - Write TypeScript/React code
-   - Review pull requests
-   - Implement forms or mutations
-   - Work with Server Components/Actions
 
 ## Usage Examples
 
