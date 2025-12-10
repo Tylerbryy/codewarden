@@ -1,7 +1,7 @@
 {
   "name": "codewarden",
   "description": "CodeWarden watches over your code quality: Ultracite enforcement, React 19/Next.js App Router patterns, security auditing, and automated workflows for modern TypeScript/React applications",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Tyler Gibbs",
     "email": "tyler.gibbs@tensorpt.com",
