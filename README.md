@@ -11,6 +11,10 @@
 
 CodeWarden is a Claude Code plugin for enforcing modern development practices, code quality standards, and security best practices in TypeScript/React/Next.js applications. The plugin ensures your code meets strict standards for quality, accessibility, and security.
 
+## Demo
+
+![CodeWarden Demo](public/demo.png)
+
 ## Installation
 
 ### Option 1: Install from GitHub (Recommended)
