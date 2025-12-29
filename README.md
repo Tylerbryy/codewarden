@@ -108,14 +108,17 @@ Enforce React 19 and Next.js App Router best practices with server-first archite
 - Security: Input validation, authentication, rate limiting
 
 #### UI/UX Guidelines - Accessibility & Design
-UI/UX best practices for accessible, performant, and delightful interfaces.
+Comprehensive UI/UX best practices for accessible, performant, and delightful interfaces.
 
 - Keyboard Navigation: Full WCAG compliance, focus management
 - Touch Targets: Mobile-friendly hit areas (≥44px)
 - Accessibility: ARIA labels, semantic HTML, screen reader support
-- Animations: prefers-reduced-motion support, compositor-friendly
+- Animations: prefers-reduced-motion support, compositor-friendly properties
 - Forms: Proper validation, error handling, password manager support
-- Performance: Image optimization, virtualized lists, minimal re-renders
+- Performance: Image optimization, virtualized lists, minimal re-renders, Web Workers
+- Internationalization: Locale-aware formatting, non-breaking spaces
+- Copywriting: Clear, actionable messaging (includes Vercel style guide)
+- Browser Quirks: SVG transforms, Windows select backgrounds, cross-browser compatibility
 
 ### Slash Commands
 
@@ -294,7 +297,8 @@ codewarden/
 │   ├── react-next-modern/
 │   │   └── SKILL.md          # React/Next.js patterns
 │   └── ui-ux-guidelines/
-│       └── SKILL.md          # UI/UX best practices
+│       ├── SKILL.md          # UI/UX best practices
+│       └── AGENTS.md         # Agent integration reference
 ├── commands/
 │   ├── code-review.md        # Code review command
 │   ├── fix-patterns.md       # Pattern fixing command

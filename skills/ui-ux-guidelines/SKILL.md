@@ -56,6 +56,7 @@ Activate when:
 - **SHOULD**: Placeholders end with ellipsis and show example pattern (e.g., `+1 (123) 456-7890`, `sk-012345…`)
 - **MUST**: Warn on unsaved changes before navigation
 - **MUST**: Compatible with password managers & 2FA; allow pasting one-time codes
+- **MUST**: Avoid `autocomplete="off"` unless security-critical; don't trigger password managers for non-auth fields
 - **MUST**: Trim values to handle text expansion trailing spaces
 - **MUST**: No dead zones on checkboxes/radios; label+control share one generous hit target
 
@@ -91,10 +92,17 @@ Activate when:
 - **MUST**: Honor `prefers-reduced-motion` (provide reduced variant)
 - **SHOULD**: Prefer CSS > Web Animations API > JS libraries
 - **MUST**: Animate compositor-friendly props (`transform`, `opacity`); avoid layout/repaint props (`top`/`left`/`width`/`height`)
+- **NEVER**: Use `transition: all` (explicitly list properties to avoid unintended animations)
 - **SHOULD**: Animate only to clarify cause/effect or add deliberate delight
 - **SHOULD**: Choose easing to match the change (size/distance/trigger)
 - **MUST**: Animations are interruptible and input-driven (avoid autoplay)
 - **MUST**: Correct `transform-origin` (motion starts where it "physically" should)
+
+### Cross-Browser Compatibility
+
+- **MUST**: Apply CSS transforms to SVG children (`<g>`), not parent `<svg>` (Safari/Firefox rendering bugs)
+- **MUST**: Set `transform-box: fill-box` and `transform-origin: center` on SVG elements when animating
+- **SHOULD**: Use `translateZ(0)` or `will-change: transform` if text anti-aliasing artifacts appear during transforms
 
 ---
 
@@ -128,7 +136,8 @@ Activate when:
 - **MUST**: Icon-only buttons have descriptive `aria-label`
 - **MUST**: Prefer native semantics (`button`, `a`, `label`, `table`) before ARIA
 - **SHOULD**: Right-clicking the nav logo surfaces brand assets
-- **MUST**: Use non-breaking spaces to glue terms: `10&nbsp;MB`, `⌘&nbsp;+&nbsp;K`, `Vercel&nbsp;SDK`
+- **MUST**: Use non-breaking spaces to glue terms: `10&nbsp;MB`, `⌘&nbsp;+&nbsp;K`, `Vercel&nbsp;SDK`; use `&#x2060;` for zero-width
+- **MUST**: Detect language via `Accept-Language` header and `navigator.languages`, NOT IP geolocation
 
 ---
 
@@ -139,11 +148,15 @@ Activate when:
 - **MUST**: Track and minimize re-renders (React DevTools/React Scan)
 - **MUST**: Profile with CPU/network throttling
 - **MUST**: Batch layout reads/writes; avoid unnecessary reflows/repaints
-- **MUST**: Mutations (`POST`/`PATCH`/`DELETE`) target <500 ms
+- **MUST**: Mutations (`POST`/`PATCH`/`DELETE`) complete in <500 ms
 - **SHOULD**: Prefer uncontrolled inputs; make controlled loops cheap (keystroke cost)
-- **MUST**: Virtualize large lists (e.g., `virtua`)
+- **MUST**: Virtualize large lists (e.g., `virtua`) or use `content-visibility: auto`
 - **MUST**: Preload only above-the-fold images; lazy-load the rest
 - **MUST**: Prevent CLS from images (explicit dimensions or reserved space)
+- **SHOULD**: Use `<link rel="preconnect">` for asset/CDN domains (with `crossorigin` when needed)
+- **SHOULD**: Preload critical fonts to avoid FOUT and layout shift
+- **SHOULD**: Subset fonts to only used characters/scripts via `unicode-range`
+- **SHOULD**: Move expensive work to Web Workers to avoid blocking main thread
 
 ---
 
@@ -156,8 +169,31 @@ Activate when:
 - **MUST**: Accessible charts (color-blind-friendly palettes)
 - **MUST**: Meet contrast—prefer [APCA](https://apcacontrast.com/) over WCAG 2
 - **MUST**: Increase contrast on `:hover`/`:active`/`:focus`
-- **SHOULD**: Match browser UI to bg
+- **SHOULD**: Set `<meta name="theme-color">` to match page background
+- **MUST**: Set `color-scheme: dark` on `<html>` in dark themes (ensures proper scrollbar/device UI contrast)
+- **MUST**: On Windows, set explicit `background-color` and `color` on `<select>` to avoid dark mode contrast bugs
 - **SHOULD**: Avoid gradient banding (use masks when needed)
+
+---
+
+## Copywriting Guidelines
+
+> **Note**: These guidelines reflect Vercel's style guide and are provided as a reference. Adapt these principles to match your brand voice and design system.
+
+- **SHOULD**: Active voice for actions ("Deploy your project" vs "Your project can be deployed")
+- **SHOULD**: Title Case for main headings (Chicago style), sentence case for body text
+- **SHOULD**: Use numerals for all numbers ("3 items" not "three items")
+- **SHOULD**: Prefer `&` over "and" in UI text
+- **SHOULD**: Action-oriented language ("Install the CLI" vs "You will need the CLI")
+- **SHOULD**: Keep nouns consistent; introduce as few unique terms as possible
+- **SHOULD**: Write in second person; avoid first person
+- **SHOULD**: Use consistent placeholders (`YOUR_API_TOKEN_HERE` for strings, `0123456789` for numbers)
+- **SHOULD**: Separate numbers & units with non-breaking space (`10&nbsp;MB`)
+- **MUST**: Default to positive language; frame errors as problems to solve, not failures
+- **MUST**: Error messages guide recovery (tell how to fix, not just what went wrong)
+- **MUST**: Avoid ambiguity in button labels; be specific ("Save API Key" vs generic "Continue")
+- **SHOULD**: Use ellipsis character `…` (not `...`)
+- **SHOULD**: Use curly quotes (" ") over straight quotes (" ")
 
 ---
 
@@ -287,6 +323,67 @@ Both skills should be active when building or reviewing frontend code.
   <AlertIcon aria-hidden="true" />
   <span>Error occurred</span>
 </div>
+```
+
+---
+
+### ❌ Bad: Using transition: all
+```css
+.button {
+  transition: all 300ms ease;
+}
+```
+
+### ✅ Good: Explicit properties
+```css
+.button {
+  transition: background-color 300ms ease, transform 300ms ease;
+}
+```
+
+---
+
+### ❌ Bad: Blocking password managers
+```tsx
+<input type="password" autoComplete="off" />
+```
+
+### ✅ Good: Allow password managers
+```tsx
+<input type="password" autoComplete="current-password" />
+```
+
+---
+
+### ❌ Bad: Vague error message
+```tsx
+<div>Your deployment failed.</div>
+<button>Continue</button>
+```
+
+### ✅ Good: Clear, actionable guidance
+```tsx
+<div>
+  Your API key is incorrect or expired.
+  <a href="/settings">Generate a new key</a> in settings.
+</div>
+<button>Save API Key</button>
+```
+
+---
+
+### ❌ Bad: Windows select with default styles
+```tsx
+<select>
+  <option>Option 1</option>
+</select>
+```
+
+### ✅ Good: Explicit colors for Windows
+```tsx
+<select className="bg-white dark:bg-gray-900 text-black dark:text-white">
+  <option>Option 1</option>
+</select>
 ```
 
 ---

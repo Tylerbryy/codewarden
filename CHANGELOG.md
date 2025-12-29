@@ -5,6 +5,40 @@ All notable changes to CodeWarden will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-12-29
+
+### Enhanced
+- **UI/UX Guidelines Skill**: Significantly expanded with comprehensive web interface guidelines
+  - Added Copywriting Guidelines section (Vercel style guide as reference)
+  - Added Cross-Browser Compatibility section (SVG transforms, text anti-aliasing)
+  - Expanded Performance section (Web Workers, font subsetting, preconnect to origins)
+  - Expanded Design section (theme-color meta tag, color-scheme CSS property, Windows select backgrounds)
+  - Enhanced Content & Accessibility section (non-breaking spaces, locale detection via Accept-Language)
+  - Enhanced Forms section (password manager compatibility, autocomplete guidance)
+  - Enhanced Animation section (transition: all warning, SVG transform workarounds)
+  - Added 20+ new code examples demonstrating common violations and fixes
+
+### Added
+- **AGENTS.md reference document** for UI/UX Guidelines skill
+  - Agent activation patterns and triggers
+  - Integration workflows with Ultracite and React Next Modern skills
+  - Priority levels for findings (Critical/High/Medium)
+  - Vercel-specific guidelines handling guidance
+  - Common review workflows (forms, interactive components, responsive layouts, performance)
+  - Example agent responses with proper formatting
+
+- New keywords in plugin metadata: `copywriting`, `internationalization`, `browser-quirks`
+
+### Changed
+- UI/UX Guidelines skill expanded from 310 to 407 lines while staying well under the 500-line recommendation
+- README.md updated with enhanced UI/UX Guidelines feature description
+- Plugin version bumped to 1.0.3
+
+### Documentation
+- Enhanced README with new UI/UX capabilities
+- Added AGENTS.md to plugin structure documentation
+- Updated plugin.json with new keywords for better discoverability
+
 ## [1.0.0] - 2025-01-10
 
 ### Added
