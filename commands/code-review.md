@@ -10,14 +10,19 @@ Perform a thorough code review of specified files or the entire codebase, checki
 2. **React Patterns**: Verify React 19 and Next.js App Router best practices
 3. **Security**: Check for common vulnerabilities and security issues
 4. **Accessibility**: Ensure WCAG compliance and proper a11y attributes
-5. **Performance**: Identify performance bottlenecks and optimization opportunities
+5. **Performance**: Apply react-best-practices (waterfalls, bundle size, caching)
+6. **Design Guidelines**: Check against Vercel design standards (interactions, animations, forms)
 
 ## Instructions
 
 When this command is invoked:
 
 1. Ask which files/directories to review (or review recent changes if not specified)
-2. Use the Ultracite and React Next Modern skills to analyze the code
+2. Use all relevant skills to analyze the code:
+   - **Ultracite**: Type safety, code quality, modern JavaScript
+   - **React Next Modern**: Server Components, Server Actions, React 19 patterns
+   - **React Best Practices**: Performance optimization (waterfalls, bundles, caching)
+   - **Vercel Design Guidelines**: Interactions, animations, forms, accessibility
 3. Provide a structured report with:
    - **Summary**: Overview of findings
    - **Critical Issues**: Must-fix problems

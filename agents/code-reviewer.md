@@ -1,9 +1,9 @@
 ---
 name: code-reviewer
-description: Comprehensive code quality reviewer. Use PROACTIVELY after code changes or when /code-review is invoked. Reviews against Ultracite standards, React patterns, and UI/UX guidelines.
+description: Comprehensive code quality reviewer. Use PROACTIVELY after code changes or when /code-review is invoked. Reviews against Ultracite standards, React patterns, UI/UX guidelines, and performance best practices.
 tools: Read, Grep, Glob, Bash
 model: sonnet
-skills: ultracite, react-next-modern, ui-ux-guidelines
+skills: ultracite, react-next-modern, ui-ux-guidelines, react-best-practices, vercel-design-guidelines
 ---
 
 # Code Reviewer Agent
@@ -65,6 +65,25 @@ When invoked:
 - [ ] Input validation present
 - [ ] No SQL injection risks
 - [ ] No exposed secrets
+
+### Performance (react-best-practices)
+- [ ] No async waterfalls (use Promise.all for independent ops)
+- [ ] No barrel file imports (import directly from source)
+- [ ] Heavy components use next/dynamic
+- [ ] Third-party libs deferred (analytics, etc.)
+- [ ] React.cache() for server-side deduplication
+- [ ] SWR for client-side data fetching
+- [ ] Proper Suspense boundaries for streaming
+- [ ] No expensive work in render path
+
+### Design Guidelines (vercel-design-guidelines)
+- [ ] Visible focus rings on focusable elements
+- [ ] Hit targets ≥24px (44px on mobile)
+- [ ] Loading states don't flicker (300ms minimum)
+- [ ] `prefers-reduced-motion` respected
+- [ ] No `transition: all`
+- [ ] Errors show how to fix, not just what's wrong
+- [ ] Color contrast meets standards
 
 ## Example Output
 

@@ -5,6 +5,66 @@ All notable changes to CodeWarden will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2025-01-14
+
+### Added
+- **design-auditor agent**: Dedicated UI/UX design auditor using `vercel-design-guidelines` skill
+  - Category-based review (Interactions, Animations, Layout, Content, Forms, Performance, Design, Copywriting)
+  - Severity levels (Critical, Warning, Suggestion)
+  - Common violation examples with fixes (loading flicker, transition all, reduced motion, error messages, hit targets)
+  - Quick checklist for rapid reviews
+
+---
+
+## [2.1.0] - 2025-01-14
+
+### Enhanced
+
+#### Agents Updated with New Skills
+- **code-reviewer**: Now includes `react-best-practices` and `vercel-design-guidelines` skills
+  - Added performance review checklist (waterfalls, barrel imports, dynamic imports, caching)
+  - Added design guidelines checklist (focus rings, hit targets, loading states, animations)
+
+- **code-refactorer**: Now includes `react-best-practices` skill
+  - Added performance optimization refactoring patterns:
+    - Waterfall elimination (Promise.all)
+    - Barrel import elimination
+    - Dynamic import for heavy components
+    - Suspense boundary addition
+    - State read deferral
+
+- **pattern-detector**: Now includes `react-best-practices` skill
+  - Added performance anti-pattern detection:
+    - Barrel imports (lucide-react, @mui/material, lodash)
+    - Sequential awaits (waterfall patterns)
+    - CSS `transition: all`
+    - Non-lazy state initialization
+  - Added fix patterns for each new anti-pattern
+
+- **accessibility-auditor**: Now includes `vercel-design-guidelines` skill
+  - Added design-focused accessibility checks
+  - Added quick checklist from design guidelines
+
+#### Commands Updated
+- **code-review**: Now references all 6 skills for comprehensive review
+  - Added performance and design guidelines to review scope
+
+### Changed
+- Plugin version bumped to 2.1.0
+
+---
+
+## [2.0.1] - 2025-01-14
+
+### Added
+- **CLAUDE.md**: AI agent guidance file for working with the codebase
+  - Plugin structure documentation
+  - Skill, command, and agent creation guidelines
+  - Naming conventions and best practices
+  - Script requirements and version management workflow
+
+---
+
 ## [2.0.0] - 2025-01-14
 
 ### Added

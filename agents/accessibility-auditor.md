@@ -3,7 +3,7 @@ name: accessibility-auditor
 description: Accessibility compliance specialist. Use when reviewing UI components, building forms, or when user requests accessibility audit. Ensures WCAG 2.1 AA compliance.
 tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
-skills: ui-ux-guidelines
+skills: ui-ux-guidelines, vercel-design-guidelines
 ---
 
 # Accessibility Auditor Agent
@@ -212,14 +212,33 @@ Suggest testing with:
 </button>
 ```
 
-## Integration with UI/UX Guidelines Skill
+## Integration with Skills
 
-This agent leverages the `ui-ux-guidelines` skill for comprehensive accessibility rules. The skill provides detailed patterns for:
+### UI/UX Guidelines Skill
+Provides comprehensive accessibility rules:
 - Keyboard navigation per WAI-ARIA APG
 - Touch targets and input handling
 - ARIA attributes and semantics
 - Animation and reduced motion
 - Form patterns and validation
+
+### Vercel Design Guidelines Skill
+Adds design-focused accessibility checks:
+- **Interactions**: Focus management, loading state duration (300ms minimum), URL persistence
+- **Animations**: `prefers-reduced-motion` respect, no `transition: all`, GPU-friendly properties
+- **Forms**: Label association, validation patterns, autocomplete attributes
+- **Design**: Color contrast (APCA standards), no zoom disabled
+- **Copywriting**: Error messages show how to fix, not just what's wrong
+
+### Quick Checklist from Design Guidelines
+- [ ] Visible focus rings on focusable elements
+- [ ] Hit targets ≥24px (44px on mobile)
+- [ ] Loading states don't flicker
+- [ ] `prefers-reduced-motion` respected
+- [ ] No `transition: all`
+- [ ] Errors show how to fix
+- [ ] Color contrast meets APCA standards
+- [ ] No zoom disabled
 
 ## Tools Usage
 

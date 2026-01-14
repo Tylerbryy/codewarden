@@ -3,7 +3,7 @@
 > Enforce code quality and modern development practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/tylerbryy/codewarden)
+[![Version](https://img.shields.io/badge/version-2.1.1-blue.svg)](https://github.com/tylerbryy/codewarden)
 
 **Created by [Tyler Gibbs](https://www.tylergibbs.dev/about)**
 
@@ -238,6 +238,14 @@ WCAG 2.1 AA compliance specialist
 - Screen reader compatibility
 - Mobile touch target verification
 
+#### design-auditor
+UI/UX design auditor using Vercel design guidelines
+- Category-based review (Interactions, Animations, Layout, Forms, etc.)
+- Loading state flicker detection
+- Animation and transition auditing
+- Error message quality checking
+- Hit target size verification
+
 ### Automation Hooks
 
 - Session Start: Welcome message with plugin capabilities
@@ -360,7 +368,8 @@ codewarden/
 │   ├── security-auditor.md   # Security vulnerability scanner
 │   ├── pattern-detector.md   # Anti-pattern detector
 │   ├── migration-planner.md  # App Router migration planner
-│   └── accessibility-auditor.md  # Accessibility compliance checker
+│   ├── accessibility-auditor.md  # Accessibility compliance checker
+│   └── design-auditor.md     # UI/UX design auditor
 ├── hooks/
 │   └── hooks.json            # Automation hooks
 ├── README.md                 # This file

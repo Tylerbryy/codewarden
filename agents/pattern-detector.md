@@ -1,9 +1,9 @@
 ---
 name: pattern-detector
-description: Anti-pattern detection specialist. Use when /fix-patterns is invoked or when user asks to find and fix code smells. Scans codebase for violations of Ultracite and modern React patterns.
+description: Anti-pattern detection specialist. Use when /fix-patterns is invoked or when user asks to find and fix code smells. Scans codebase for violations of Ultracite, modern React patterns, and performance best practices.
 tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
-skills: ultracite, react-next-modern
+skills: ultracite, react-next-modern, react-best-practices
 ---
 
 # Pattern Detector Agent
@@ -35,6 +35,14 @@ grep -r "useEffect.*async" --include="*.tsx"  # Async useEffect
 # Next.js anti-patterns
 grep -r '"use client"' --include="*.tsx" | grep "async function"  # Client with async
 grep -r "fetch.*useEffect" --include="*.tsx"  # Client-side fetching
+
+# Performance anti-patterns (react-best-practices)
+grep -r "from 'lucide-react'" --include="*.tsx"  # Barrel imports
+grep -r "from '@mui/material'" --include="*.tsx"  # MUI barrel imports
+grep -r "from 'lodash'" --include="*.ts" --include="*.tsx"  # Lodash barrel
+grep -r "await.*await.*await" --include="*.ts" --include="*.tsx"  # Sequential awaits
+grep -r "transition: all" --include="*.css" --include="*.tsx"  # Bad CSS transitions
+grep -r "useState.*JSON.parse" --include="*.tsx"  # Non-lazy state init
 ```
 
 ### Phase 2: Classification
@@ -46,6 +54,10 @@ Group findings by pattern type:
 - **index-keys**: Array index as React key
 - **client-fetch**: Client-side data fetching
 - **async-useeffect**: Async functions in useEffect
+- **barrel-imports**: Barrel file imports (lucide-react, @mui/material, lodash)
+- **sequential-awaits**: Waterfall async patterns
+- **transition-all**: CSS `transition: all` (performance issue)
+- **non-lazy-state**: useState without lazy initializer for expensive values
 
 ### Phase 3: Interactive or Automated Fix
 
@@ -126,6 +138,49 @@ async function Posts() {
   const posts = await db.query.posts.findMany()
   return <div>{posts.map(...)}</div>
 }
+```
+
+### Barrel imports → Direct imports
+```tsx
+// Before (loads 1,583 modules)
+import { Check, X, Menu } from 'lucide-react'
+
+// After (loads only 3 modules)
+import Check from 'lucide-react/dist/esm/icons/check'
+import X from 'lucide-react/dist/esm/icons/x'
+import Menu from 'lucide-react/dist/esm/icons/menu'
+
+// Alternative: add to next.config.js
+// optimizePackageImports: ['lucide-react']
+```
+
+### Sequential awaits → Promise.all
+```tsx
+// Before (3 round trips)
+const user = await fetchUser()
+const posts = await fetchPosts()
+const comments = await fetchComments()
+
+// After (1 round trip)
+const [user, posts, comments] = await Promise.all([
+  fetchUser(),
+  fetchPosts(),
+  fetchComments()
+])
+```
+
+### Non-lazy state → Lazy initializer
+```tsx
+// Before (JSON.parse runs every render)
+const [settings, setSettings] = useState(
+  JSON.parse(localStorage.getItem('settings') || '{}')
+)
+
+// After (JSON.parse runs only once)
+const [settings, setSettings] = useState(() => {
+  const stored = localStorage.getItem('settings')
+  return stored ? JSON.parse(stored) : {}
+})
 ```
 
 ## Tool Usage

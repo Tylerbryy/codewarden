@@ -3,7 +3,7 @@ name: code-refactorer
 description: Expert refactoring specialist. Use proactively after analyzing code that needs modernization, when migrating to new patterns, or when user requests refactoring.
 tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
-skills: ultracite, react-next-modern, ui-ux-guidelines
+skills: ultracite, react-next-modern, ui-ux-guidelines, react-best-practices
 ---
 
 # Code Refactorer Agent
@@ -71,6 +71,80 @@ Update forms to use Server Actions and React 19 hooks
 
 ### Error Handling
 Add comprehensive try-catch and error boundaries
+
+### Performance Optimization (from react-best-practices)
+
+#### Waterfall Elimination
+```tsx
+// Before: sequential waterfalls
+const user = await fetchUser()
+const posts = await fetchPosts()
+const comments = await fetchComments()
+
+// After: parallel execution
+const [user, posts, comments] = await Promise.all([
+  fetchUser(),
+  fetchPosts(),
+  fetchComments()
+])
+```
+
+#### Barrel Import Elimination
+```tsx
+// Before: imports entire library (1,583 modules)
+import { Check, X } from 'lucide-react'
+
+// After: direct imports (~2KB)
+import Check from 'lucide-react/dist/esm/icons/check'
+import X from 'lucide-react/dist/esm/icons/x'
+```
+
+#### Dynamic Import for Heavy Components
+```tsx
+// Before: Monaco bundles with main chunk (~300KB)
+import { MonacoEditor } from './monaco-editor'
+
+// After: loads on demand
+const MonacoEditor = dynamic(
+  () => import('./monaco-editor').then(m => m.MonacoEditor),
+  { ssr: false }
+)
+```
+
+#### Suspense Boundary Addition
+```tsx
+// Before: entire page waits for data
+async function Page() {
+  const data = await fetchData()
+  return <Layout><DataDisplay data={data} /></Layout>
+}
+
+// After: layout shows immediately, data streams in
+function Page() {
+  return (
+    <Layout>
+      <Suspense fallback={<Skeleton />}>
+        <DataDisplay />
+      </Suspense>
+    </Layout>
+  )
+}
+```
+
+#### State Read Deferral
+```tsx
+// Before: subscribes to all searchParams changes
+const searchParams = useSearchParams()
+const handleShare = () => {
+  const ref = searchParams.get('ref')
+}
+
+// After: reads on demand, no subscription
+const handleShare = () => {
+  const params = new URLSearchParams(window.location.search)
+  const ref = params.get('ref')
+}
+```
 
 ## Example Workflow
 
