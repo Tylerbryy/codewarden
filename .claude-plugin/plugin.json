@@ -1,7 +1,7 @@
 {
   "name": "codewarden",
-  "description": "CodeWarden watches over your code quality: Ultracite enforcement, React 19/Next.js App Router patterns, security auditing, and automated workflows for modern TypeScript/React applications",
-  "version": "1.0.3",
+  "description": "CodeWarden watches over your code quality: Ultracite enforcement, React 19/Next.js App Router patterns, security auditing, Vercel deployment, React performance best practices, design guidelines, and automated workflows for modern TypeScript/React applications",
+  "version": "2.0.0",
   "author": {
     "name": "Tyler Gibbs",
     "email": "tyler.gibbs@tensorpt.com",
@@ -28,7 +28,13 @@
     "hooks",
     "ultracite",
     "development-tools",
-    "code-guardian"
+    "code-guardian",
+    "vercel",
+    "deployment",
+    "performance",
+    "design-guidelines",
+    "react-performance",
+    "bundle-optimization"
   ],
   "license": "MIT"
 }

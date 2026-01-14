@@ -3,7 +3,7 @@
 > Enforce code quality and modern development practices
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/tylerbryy/codewarden)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/tylerbryy/codewarden)
 
 **Created by [Tyler Gibbs](https://www.tylergibbs.dev/about)**
 
@@ -79,11 +79,19 @@ When team members trust the repository, the plugin installs automatically.
    /fix-patterns
    ```
 
-5. The skills activate automatically when you:
+5. Deploy to Vercel:
+   ```bash
+   "Deploy my app to Vercel"
+   ```
+
+6. The skills activate automatically when you:
    - Write TypeScript/React code
    - Review pull requests
    - Implement forms or mutations
    - Work with Server Components/Actions
+   - Ask about performance optimization
+   - Request UI/design reviews
+   - Deploy applications
 
 ## Features
 
@@ -119,6 +127,37 @@ Comprehensive UI/UX best practices for accessible, performant, and delightful in
 - Internationalization: Locale-aware formatting, non-breaking spaces
 - Copywriting: Clear, actionable messaging (includes Vercel style guide)
 - Browser Quirks: SVG transforms, Windows select backgrounds, cross-browser compatibility
+
+#### React Best Practices - Performance Optimization
+React and Next.js performance optimization guidelines from Vercel Engineering, ordered by impact.
+
+- **Critical - Eliminate Waterfalls**: Promise.all() for parallel async, start promises early, Suspense boundaries
+- **Critical - Bundle Size**: Avoid barrel imports, use next/dynamic, defer third-party libraries, preload on intent
+- **High - Server Performance**: React.cache() for deduplication, LRU cache for cross-request, minimize RSC serialization
+- **Medium - Client Data Fetching**: SWR for automatic deduplication, defer state reads, derived state subscriptions
+- **Medium - Re-render Optimization**: useMemo/useCallback strategically, startTransition for non-urgent updates
+- Includes 39 individual rule files organized by category (async, bundle, server, client, rerender, rendering, js, advanced)
+
+#### Vercel Deploy - Instant Deployment
+Deploy any project to Vercel instantly without authentication.
+
+- No auth required - returns preview URL and claimable deployment link
+- Auto-detects 40+ frameworks (Next.js, Remix, Astro, SvelteKit, Vue, Angular, etc.)
+- Supports directory or tarball deployment
+- Static HTML project support with automatic index.html handling
+- Includes ready-to-run `deploy.sh` script
+
+#### Vercel Design Guidelines - UI Auditing
+Review web interfaces against Vercel's comprehensive design guidelines.
+
+- **Interactions**: Keyboard accessibility, focus management, hit targets, loading states
+- **Animations**: Reduced motion, GPU acceleration, easing, interruptibility
+- **Layout**: Optical adjustment, alignment, responsive testing, safe areas
+- **Content**: Inline help, skeletons, empty states, typography, accessibility
+- **Forms**: Labels, validation, autocomplete, error handling, submit behavior
+- **Performance**: Re-renders, layout thrashing, virtualization, preloading
+- **Design**: Shadows, borders, radii, contrast, color accessibility
+- **Copywriting**: Active voice, title case, clarity, error messaging
 
 ### Slash Commands
 
@@ -296,9 +335,20 @@ codewarden/
 │   │   └── SKILL.md          # Code quality rules
 │   ├── react-next-modern/
 │   │   └── SKILL.md          # React/Next.js patterns
-│   └── ui-ux-guidelines/
-│       ├── SKILL.md          # UI/UX best practices
-│       └── AGENTS.md         # Agent integration reference
+│   ├── ui-ux-guidelines/
+│   │   ├── SKILL.md          # UI/UX best practices
+│   │   └── AGENTS.md         # Agent integration reference
+│   ├── react-best-practices/
+│   │   ├── SKILL.md          # Performance optimization guide
+│   │   └── references/
+│   │       ├── react-performance-guidelines.md
+│   │       └── rules/        # 39 individual rule files
+│   ├── vercel-deploy/
+│   │   ├── SKILL.md          # Deployment instructions
+│   │   └── scripts/
+│   │       └── deploy.sh     # Deployment script
+│   └── vercel-design-guidelines/
+│       └── SKILL.md          # Design audit guidelines
 ├── commands/
 │   ├── code-review.md        # Code review command
 │   ├── fix-patterns.md       # Pattern fixing command
@@ -401,13 +451,16 @@ This plugin is built on these core principles:
 
 ## Roadmap
 
+- [x] Vercel deployment integration
+- [x] React performance optimization guidelines
+- [x] Design guidelines and UI auditing
 - [ ] GraphQL/tRPC integration patterns
 - [ ] Database migration safety checks
 - [ ] API versioning enforcement
 - [ ] Performance budgets and monitoring
 - [ ] Automated test generation
 - [ ] CI/CD configuration templates
-- [ ] Docker and deployment patterns
+- [ ] Docker patterns
 
 ## Support
 

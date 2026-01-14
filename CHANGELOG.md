@@ -5,6 +5,50 @@ All notable changes to CodeWarden will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-01-14
+
+### Added
+
+#### New Agent Skills
+- **react-best-practices**: React and Next.js performance optimization guidelines from Vercel Engineering
+  - Priority-ordered guidelines (Critical → Low impact)
+  - 39 individual rule files covering all optimization categories
+  - Quick reference for critical patterns (waterfalls, bundle size)
+  - Categories: async, bundle, server, client, rerender, rendering, js, advanced
+
+- **vercel-deploy**: Deploy applications to Vercel instantly
+  - No authentication required - returns preview URL and claimable deployment link
+  - Auto-detects 40+ frameworks (Next.js, Remix, Astro, SvelteKit, etc.)
+  - Supports directory or tarball deployment
+  - Static HTML project support with automatic index.html handling
+  - Includes `scripts/deploy.sh` for direct execution
+
+- **vercel-design-guidelines**: Review web interfaces against Vercel's design guidelines
+  - Audit categories: Interactions, Animations, Layout, Content, Forms, Performance, Design, Copywriting
+  - Severity levels: Critical, Warning, Suggestion
+  - Quick checklist for rapid reviews
+  - Code examples for common fixes
+
+#### Plugin Metadata
+- New keywords: `vercel`, `deployment`, `performance`, `design-guidelines`, `react-performance`, `bundle-optimization`
+
+### Changed
+- Plugin version bumped from 1.0.3 → 2.0.0 (major release with new skill additions)
+- Plugin description updated to include Vercel deployment, React performance, and design guidelines
+- Total Skills increased from 3 to 6
+
+### Technical Details
+- Total Skills: 6 (was 3)
+  - ultracite
+  - react-next-modern
+  - ui-ux-guidelines
+  - react-best-practices (new)
+  - vercel-deploy (new)
+  - vercel-design-guidelines (new)
+- Total reference documents: 47 markdown files across all skills
+
+---
+
 ## [1.0.3] - 2025-12-29
 
 ### Enhanced
