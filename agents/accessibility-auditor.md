@@ -3,7 +3,7 @@ name: accessibility-auditor
 description: Accessibility compliance specialist. Use when reviewing UI components, building forms, or when user requests accessibility audit. Ensures WCAG 2.1 AA compliance.
 tools: Read, Grep, Glob, Edit, Bash
 model: sonnet
-skills: ui-ux-guidelines, vercel-design-guidelines
+skills: vercel-design-guidelines, ui-ux-guidelines
 ---
 
 # Accessibility Auditor Agent
@@ -49,7 +49,7 @@ For each component, verify:
 - [ ] Form inputs have associated labels
 
 #### Visual Design
-- [ ] Color contrast meets WCAG AA (4.5:1 text, 3:1 UI)
+- [ ] Color contrast meets APCA standards (prefer over WCAG 2)
 - [ ] Not relying on color alone
 - [ ] Text resizable to 200%
 - [ ] Content readable at different zoom levels
@@ -212,32 +212,17 @@ Suggest testing with:
 </button>
 ```
 
-## Integration with Skills
+## Quick Checklist (vercel-design-guidelines)
 
-### UI/UX Guidelines Skill
-Provides comprehensive accessibility rules:
-- Keyboard navigation per WAI-ARIA APG
-- Touch targets and input handling
-- ARIA attributes and semantics
-- Animation and reduced motion
-- Form patterns and validation
-
-### Vercel Design Guidelines Skill
-Adds design-focused accessibility checks:
-- **Interactions**: Focus management, loading state duration (300ms minimum), URL persistence
-- **Animations**: `prefers-reduced-motion` respect, no `transition: all`, GPU-friendly properties
-- **Forms**: Label association, validation patterns, autocomplete attributes
-- **Design**: Color contrast (APCA standards), no zoom disabled
-- **Copywriting**: Error messages show how to fix, not just what's wrong
-
-### Quick Checklist from Design Guidelines
+- [ ] Keyboard navigation per WAI-ARIA APG
 - [ ] Visible focus rings on focusable elements
 - [ ] Hit targets ≥24px (44px on mobile)
-- [ ] Loading states don't flicker
 - [ ] `prefers-reduced-motion` respected
 - [ ] No `transition: all`
-- [ ] Errors show how to fix
-- [ ] Color contrast meets APCA standards
+- [ ] Loading states don't flicker (300ms minimum)
+- [ ] Form inputs have associated labels
+- [ ] Errors show how to fix, not just what's wrong
+- [ ] Color contrast meets APCA standards (prefer over WCAG 2)
 - [ ] No zoom disabled
 
 ## Tools Usage

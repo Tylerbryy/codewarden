@@ -5,6 +5,25 @@ All notable changes to CodeWarden will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.2] - 2025-01-14
+
+### Changed
+- **ui-ux-guidelines skill**: Compressed from 408 to 181 lines (56% reduction)
+  - Removed content now covered by `vercel-design-guidelines`
+  - Added precedence note: Vercel guidelines take priority for overlapping rules
+  - Retained only implementation-specific details (CSS properties, browser workarounds, edge cases)
+
+### Fixed
+- **accessibility-auditor agent**: Changed color contrast standard from WCAG AA to APCA (aligns with Vercel)
+- **code-reviewer agent**: Consolidated duplicate UI/UX and Design Guidelines checklists into single section
+
+### Updated
+- Reordered skills in agents to put `vercel-design-guidelines` first (indicating precedence):
+  - `code-reviewer`
+  - `accessibility-auditor`
+
+---
+
 ## [2.1.1] - 2025-01-14
 
 ### Added

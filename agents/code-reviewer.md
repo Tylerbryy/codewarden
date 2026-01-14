@@ -3,7 +3,7 @@ name: code-reviewer
 description: Comprehensive code quality reviewer. Use PROACTIVELY after code changes or when /code-review is invoked. Reviews against Ultracite standards, React patterns, UI/UX guidelines, and performance best practices.
 tools: Read, Grep, Glob, Bash
 model: sonnet
-skills: ultracite, react-next-modern, ui-ux-guidelines, react-best-practices, vercel-design-guidelines
+skills: vercel-design-guidelines, ultracite, react-next-modern, ui-ux-guidelines, react-best-practices
 ---
 
 # Code Reviewer Agent
@@ -53,12 +53,17 @@ When invoked:
 - [ ] Correct key props
 - [ ] No waterfalls
 
-### UI/UX (ui-ux-guidelines)
-- [ ] Keyboard navigation support
-- [ ] Hit targets ≥44px on mobile
+### UI/UX & Design (vercel-design-guidelines + ui-ux-guidelines)
+- [ ] Keyboard navigation per WAI-ARIA APG
+- [ ] Visible focus rings on focusable elements
+- [ ] Hit targets ≥24px (44px on mobile)
 - [ ] `aria-label` on icon buttons
 - [ ] `prefers-reduced-motion` respected
-- [ ] Form validation patterns correct
+- [ ] No `transition: all`
+- [ ] Loading states don't flicker (300ms minimum)
+- [ ] Form validation with inline errors
+- [ ] Errors show how to fix, not just what's wrong
+- [ ] Color contrast meets APCA standards
 
 ### Security
 - [ ] Authentication on Server Actions
@@ -75,15 +80,6 @@ When invoked:
 - [ ] SWR for client-side data fetching
 - [ ] Proper Suspense boundaries for streaming
 - [ ] No expensive work in render path
-
-### Design Guidelines (vercel-design-guidelines)
-- [ ] Visible focus rings on focusable elements
-- [ ] Hit targets ≥24px (44px on mobile)
-- [ ] Loading states don't flicker (300ms minimum)
-- [ ] `prefers-reduced-motion` respected
-- [ ] No `transition: all`
-- [ ] Errors show how to fix, not just what's wrong
-- [ ] Color contrast meets standards
 
 ## Example Output
 
